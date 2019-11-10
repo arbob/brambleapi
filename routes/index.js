@@ -2,22 +2,11 @@ var express = require('express');
 var router = express.Router();
 var fs = require('fs');
 /* GET home page. */
+var _1brtinr = 0.1647;
+var _1urvbrt = 1;
+
 router.get('/api', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
-
-router.get('/api/users', function(req, res, next) {
-	// Comment out this line:
-  //res.send('respond with a resource');
-
-  // And insert something like this instead:
-  res.json([{
-  	id: 1,
-  	username: "samsepi0l"
-  }, {
-  	id: 2,
-  	username: "D0loresH4ze"
-  }]);
+  res.render('index', { title: 'Welcome to Bramble API' });
 });
 
 router.get('/api/whitepaper', function(req, res, next) {
@@ -29,5 +18,10 @@ router.get('/api/whitepaper', function(req, res, next) {
     file.pipe(res);
 });
 
+router.get('/api/flappy/:urv', function(req, res, next){
+    // res.json( );
+    // res.json();
+    res.json(Number(req.params.urv * _1brtinr).toFixed(2))
+});
 
 module.exports = router;
