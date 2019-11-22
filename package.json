@@ -1,11 +1,12 @@
 {
-  "name": "react-backend",
-  "version": "0.0.0",
+  "name": "brambleapi",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "ccxt": "^1.19.50",
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
     "debug": "~2.6.9",
