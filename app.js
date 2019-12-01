@@ -6,6 +6,8 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var walletRouter = require('./routes/wallet');
+var verificationRouter = require('./routes/verification');
+
 var cors = require('cors');
 var app = express();
 app.use(cors());
@@ -20,8 +22,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/', walletRouter);
-
+app.use('/wallet', walletRouter);
+app.use('/',verificationRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
