@@ -32,7 +32,7 @@ router.get('/api/exchanges', function(req, res, next){
     
 });
 
-router.get('/api/contact', function(req, res, next){
+router.post('/api/contact', function(req, res, next){
     // res.json( );
     // res.json();
     res.json("Chaddhar Jeeni toh");
