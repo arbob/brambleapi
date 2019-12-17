@@ -1,10 +1,15 @@
 var express = require('express');
 var router = express.Router();
 var fs = require('fs');
+var Contact = require('../js/./model/contact')
+
 /* GET home page. */
 var _1brtinr = 0.1647;
 var _1urvbrt = 1;
+var http = require('http');
 var ccxt = require('ccxt');
+var request = require('request');
+ 
 
 router.get('/api', function(req, res, next) {
   res.render('index', { title: 'Welcome to Bramble API' });
@@ -35,7 +40,19 @@ router.get('/api/exchanges', function(req, res, next){
 router.post('/api/contact', function(req, res, next){
     // res.json( );
     // res.json();
-    res.json("Chaddhar Jeeni toh");
+    // res.json(req.body);
+    // res.send(req);
+    var newContact = new Contact();
+        newContact.name = req.body.name;
+        newContact.email = req.body.email;
+        newContact.message = req.body.message;
+
+    newContact.save(function(err) {
+        if (err)
+            throw err;
+    });
+    res.json('done');
+
     
 });
 

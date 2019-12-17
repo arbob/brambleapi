@@ -3,21 +3,35 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+var bodyParser = require('body-parser')
 var indexRouter = require('./routes/index');
 var walletRouter = require('./routes/wallet');
-var verificationRouter = require('./routes/verification');
 
+var verificationRouter = require('./routes/verification');
 var cors = require('cors');
 var app = express();
+var mongoose = require('mongoose');
+
+
+
 app.use(cors());
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 app.use(logger('dev'));
+// mongoose.connect("mongodb://3.15.160.213:27017/bramble"); 
+// mongoose.connect("mongodb://ian:iloveu@3.15.160.213/bramble-ui");
+mongoose.connect("mongodb://hunterlabs:gQRBCEh1aoUt7wOl0cHE@3.15.160.213/bramble");
+
+
+
+// app.use( bodyParser.json() );       // to support JSON-encoded bodies
+// app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+//   extended: true
+// }));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
