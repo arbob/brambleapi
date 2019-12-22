@@ -22,7 +22,7 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 // mongoose.connect("mongodb://3.15.160.213:27017/bramble"); 
 // mongoose.connect("mongodb://ian:iloveu@3.15.160.213/bramble-ui");
-mongoose.connect("mongodb://hunterlabs:gQRBCEh1aoUt7wOl0cHE@3.15.160.213/bramble");
+mongoose.connect("mongodb://hunterlabs:gQRBCEh1aoUt7wOl0cHE@18.218.237.89/bramble");
 
 
 
