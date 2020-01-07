@@ -3,7 +3,8 @@ var mongoose = require('mongoose');
 var contactSchema = mongoose.Schema({
         name    : String,
         email : String,
-        message: String
+        message: String,
+        date: Date
 });
 
 // create the model and expose it to our app

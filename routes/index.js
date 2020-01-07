@@ -42,10 +42,12 @@ router.post('/api/contact', function(req, res, next){
     // res.json();
     // res.json(req.body);
     // res.send(req);
+    let date_ob = new Date();
     var newContact = new Contact();
         newContact.name = req.body.name;
         newContact.email = req.body.email;
         newContact.message = req.body.message;
+        newContact.date = date_ob;
 
     newContact.save(function(err) {
         if (err)
